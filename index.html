@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="my">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saw Thit Aung | Marine Study Hub</title>
+
+    <meta name="theme-color" content="#000814" />
+
+    <link rel="icon" type="image/webp" href="logo001.webp" />
+
+    <meta
+      name="description"
+      content="Saw Thit Aung - Third Engineer Officer (3/E). Study for engineer officer."
+    />
+    <meta
+      name="keywords"
+      content="Saw Thit Aung, Marine Engineer, Marine Study, Myanmar Marine"
+    />
+    <meta name="author" content="Saw Thit Aung" />
+
+    <meta property="og:site_name" content="Saw Thit Aung Portfolio" />
+    <meta
+      property="og:title"
+      content="Saw Thit Aung | Marine Engineer & Creator"
+    />
+    <meta
+      property="og:description"
+      content="Technical expertise meets visual storytelling. Explore the professional journey of a 3/E Marine Officer."
+    />
+    <meta property="og:image" content="logo001.webp" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://sawthitaung.github.io/marine-study-hub/"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Saw Thit Aung | Marine Engineer" />
+    <meta
+      name="twitter:description"
+      content="Official Portfolio of Saw Thit Aung. Marine Engineering & Photography."
+    />
+    <meta name="twitter:image" content="logo001.webp" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <i class="fas fa-ship"></i> <span>Marine Study Hub</span>
+      </div>
+      <div class="nav-menu">
+        <button class="menu-btn active" onclick="showTab('study-tab')">
+          စာကျက်မည်
+        </button>
+        <button class="menu-btn" onclick="showTab('manage-tab')">
+          မေးခွန်းစီမံမည်
+        </button>
+      </div>
+    </nav>
+
+    <main class="container">
+      <!-- Dashboard Statistics -->
+      <div class="stats-container">
+        <div class="stat-card">
+          <span class="stat-label">စုစုပေါင်းမေးခွန်း</span>
+          <span id="total-q" class="stat-value">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">ယနေ့အမှတ်</span>
+          <span id="user-score" class="stat-value">0</span>
+        </div>
+      </div>
+
+      <!-- Study Section -->
+      <section id="study-tab" class="tab-content active">
+        <div class="card">
+          <div class="progress-wrapper">
+            <div id="progress-bar" class="progress-fill"></div>
+          </div>
+
+          <div id="question-text" class="question-box">
+            မေးခွန်းများ ထည့်သွင်းရန် လိုအပ်ပါသည်။
+          </div>
+
+          <div class="input-group">
+            <textarea
+              id="answer-input"
+              rows="4"
+              placeholder="အဖြေမှန်ကို စာလုံးပေါင်းမှန်အောင် ရိုက်ထည့်ပါ..."
+            ></textarea>
+            <div id="feedback-msg" class="feedback"></div>
+          </div>
+
+          <div class="action-btns">
+            <button class="btn btn-hint" onclick="toggleHint()">
+              အဖြေပြပါ
+            </button>
+            <button class="btn btn-check" onclick="processCheck()">
+              စစ်ဆေးမည်
+            </button>
+            <button class="btn btn-next" onclick="processNext()">
+              နောက်တစ်ခု
+            </button>
+          </div>
+          <div id="hint-text" class="hint-display"></div>
+        </div>
+      </section>
+
+      <!-- Management Section -->
+      <section id="manage-tab" class="tab-content">
+        <div class="card">
+          <h3>မေးခွန်းအသစ် ထည့်သွင်းရန်</h3>
+          <div class="form-container">
+            <div class="field">
+              <label>မေးခွန်း</label>
+              <input
+                type="text"
+                id="new-q-input"
+                placeholder="ဥပမာ - What is scavenge fire?"
+              />
+            </div>
+            <div class="field">
+              <label>အဖြေမှန် (တိကျစွာ ရေးပါ)</label>
+              <input
+                type="text"
+                id="new-a-input"
+                placeholder="ဥပမာ - burning of accumulation"
+              />
+            </div>
+            <button class="btn btn-check" onclick="addNewQuestion()">
+              သိမ်းဆည်းမည်
+            </button>
+          </div>
+
+          <hr />
+
+          <h3>လက်ရှိ မေးခွန်းများစာရင်း</h3>
+          <div id="questions-list" class="q-list">
+            <!-- Questions will be injected here -->
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Professional Footer -->
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4><i class="fas fa-ship"></i> Marine Study Hub</h4>
+          <p>Marine Engineers များအတွက် အထောက်အကူပြု လေ့လာရေးဆိုဒ်။</p>
+        </div>
+        <div class="footer-section">
+          <div class="social-icons">
+            <a href="mailto:thitaung1992@gmail.com"
+              ><i class="fas fa-envelope"></i
+            ></a>
+            <a href="tel:+959792105373"><i class="fas fa-phone"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 <strong>Saw Thit Aung</strong> Licensed under MIT License.
+        </p>
+        <button
+          class="scroll-top"
+          onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        >
+          <i class="fas fa-chevron-up"></i>
+        </button>
+      </div>
+    </footer>
+
+    <!-- External Script -->
+    <script src="script.js"></script>
+  </body>
+</html>
