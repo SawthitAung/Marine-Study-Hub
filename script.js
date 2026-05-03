@@ -76,8 +76,8 @@ window.processCheck = function() {
     feedback.innerText = "ဂုဏ်ယူပါတယ်! အဖြေမှန်ပါတယ်။ ✅";
     feedback.className = "feedback correct";
     
-    // အဖြေတိုရင် ၂ မှတ်၊ အဖြေရှည်ရင် (စာလုံးရေ ၂၀ ကျော်ရင်) ၁၀ မှတ်ပေးခြင်း
-    if (userVal.length >= 10) {
+    // အဖြေတိုရင် ၂ မှတ်၊ အဖြေရှည်ရင် (စာလုံးရေ 30 ကျော်ရင်) ၁၀ မှတ်ပေးခြင်း
+    if (userVal.length >= 30) {
       score += 10;
     } else {
       score += 2;
