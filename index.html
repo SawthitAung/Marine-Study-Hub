@@ -54,10 +54,14 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
-    <!-- Firebase App (the core Firebase SDK) -->
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-<!-- Firebase Realtime Database -->
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+   <script type="importmap">
+  {
+    "imports": {
+      "firebase/app": "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js",
+      "firebase/database": "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"
+    }
+  }
+</script>
   </head>
   <body>
     <nav class="navbar">
@@ -188,6 +192,6 @@
     </footer>
 
     <!-- External Script -->
-    <script src="script.js"></script>
+<script type="module" src="script.js"></script>
   </body>
 </html>
