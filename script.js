@@ -74,7 +74,7 @@ window.processCheck = function() {
   if (userVal === correctVal) {
     feedback.innerText = "ဂုဏ်ယူပါတယ်! အဖြေမှန်ပါတယ်။ ✅";
     feedback.className = "feedback correct";
-    score += 10;
+    score += 2;
     scoreEl.innerText = score;
   } else {
     feedback.innerText = "အဖြေမှားနေပါတယ်။ ပြန်ကြိုးစားကြည့်ပါ။ ❌";
