@@ -67,20 +67,7 @@ function loadQuestion() {
   updateProgressBar();
 }
 
-window.processCheck = function() {
-  const userVal = answerInput.value.trim().toLowerCase();
-  const correctVal = questions[currentIndex].a.toLowerCase();
 
-  if (userVal === correctVal) {
-    feedback.innerText = "ဂုဏ်ယူပါတယ်! အဖြေမှန်ပါတယ်။ ✅";
-    feedback.className = "feedback correct";
-    score += 2;
-    scoreEl.innerText = score;
-  } else {
-    feedback.innerText = "အဖြေမှားနေပါတယ်။ ပြန်ကြိုးစားကြည့်ပါ။ ❌";
-    feedback.className = "feedback wrong";
-  }
-};
 window.processCheck = function() {
   const userVal = answerInput.value.trim().toLowerCase();
   const correctVal = questions[currentIndex].a.toLowerCase();
@@ -89,8 +76,8 @@ window.processCheck = function() {
     feedback.innerText = "ဂုဏ်ယူပါတယ်! အဖြေမှန်ပါတယ်။ ✅";
     feedback.className = "feedback correct";
     
-    // အဖြေစာသား အရှည်ကို စစ်ဆေးခြင်း (ဥပမာ စာလုံးရေ ၅၀ ကျော်ရင် ၁၀ မှတ်)
-    if (userVal.length >= 20) {
+    // အဖြေတိုရင် ၂ မှတ်၊ အဖြေရှည်ရင် (စာလုံးရေ ၂၀ ကျော်ရင်) ၁၀ မှတ်ပေးခြင်း
+    if (userVal.length >= 10) {
       score += 10;
     } else {
       score += 2;
@@ -102,7 +89,6 @@ window.processCheck = function() {
     feedback.className = "feedback wrong";
   }
 };
-
 window.processNext = function() {
   currentIndex = (currentIndex + 1) % questions.length;
   loadQuestion();
